@@ -109,15 +109,15 @@ void setup()
 void loop()
 {
    // Scenario 2
-   if (leftLight.readSensorTick() < 200)
-   {
-     shieldBotDriver.left(LOW_SPEED_MAGNITUDE);
-   }
-   // Scenario 3
-   else if (rightLight.readSensorTick() < 200)
-   {
-     shieldBotDriver.right(LOW_SPEED_MAGNITUDE);
-   }
-   shieldBotDriver.forward(MED_SPEED_MAGNITUDE);
+    if (leftLight.readSensorTick() < 200)
+    {
+        shieldBotDriver.left(LOW_SPEED_MAGNITUDE);
+    }
+    // Scenario 3
+    else if (rightLight.readSensorTick() < 200)
+    {
+        shieldBotDriver.right(LOW_SPEED_MAGNITUDE);
+    }
+    shieldBotDriver.forward(MED_SPEED_MAGNITUDE);
 }
 
