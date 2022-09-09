@@ -72,7 +72,7 @@ class LightDetector
   	int pin;
   	int value;
   public:
-  	LightDetector(int _pin)
+    LightDetector(int _pin)
     {
       pin = _pin;
     }
@@ -98,16 +98,14 @@ void setup()
 {
   leftServo.attach(LEFT_SERVO_WRITE);
   rightServo.attach(RIGHT_SERVO_WRITE); 
-    
-  // Scenario 1
-  shieldBotDriver.forward(MED_SPEED_MAGNITUDE);
-  delay(3000);
 }
-
 
 void loop()
 {
-   // Scenario 2
+    // Scenario 1
+    shieldBotDriver.forward(MED_SPEED_MAGNITUDE);
+
+    // Scenario 2
     if (leftLight.readSensorTick() < 200)
     {
         shieldBotDriver.left(LOW_SPEED_MAGNITUDE);
@@ -119,6 +117,6 @@ void loop()
         shieldBotDriver.right(LOW_SPEED_MAGNITUDE);
       	delay(3000);
     }
-    shieldBotDriver.forward(MED_SPEED_MAGNITUDE);
+    
 }
 
