@@ -104,6 +104,7 @@ void loop()
 {
     // Scenario 1
     shieldBotDriver.forward(MED_SPEED_MAGNITUDE);
+    delay(3000);
 
     // Scenario 2
     if (leftLight.readSensorTick() < 200)
