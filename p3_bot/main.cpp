@@ -100,7 +100,6 @@ void setup()
 {
   leftServo.attach(LEFT_READ);
   rightServo.attach(RIGHT_READ); 
-  Serial.begin(9600);
     
   // Scenario 1
   shieldBotDriver.forward(MED_SPEED_MAGNITUDE);
