@@ -103,6 +103,7 @@ void setup()
     
   // Scenario 1
   shieldBotDriver.forward(MED_SPEED_MAGNITUDE);
+  delay(3000);
 }
 
 
