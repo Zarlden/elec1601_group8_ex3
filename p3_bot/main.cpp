@@ -113,13 +113,11 @@ void loop()
    if (leftLight.readSensorTick() < 200)
    {
      shieldBotDriver.left(LOW_SPEED_MAGNITUDE);
-     leftLight.printSensorTick();
    }
    // Scenario 3
    else if (rightLight.readSensorTick() < 200)
    {
      shieldBotDriver.right(LOW_SPEED_MAGNITUDE);
-     rightLight.printSensorTick();
    }
    shieldBotDriver.forward(MED_SPEED_MAGNITUDE);
 }
