@@ -1,8 +1,8 @@
 // C++ code
 //
 #include <Servo.h>
-#define LEFT_READ 12
-#define RIGHT_READ 13
+#define LEFT_SERVO_WRITE 12
+#define RIGHT_SERVO_WRITE 13
 #define LEFT_ANALOG_READ A4
 #define RIGHT_ANALOG_READ A5
 #define HIGH_SPEED_MAGNITUDE 200
@@ -97,8 +97,8 @@ Wheels shieldBotDriver;
 
 void setup()
 {
-  leftServo.attach(LEFT_READ);
-  rightServo.attach(RIGHT_READ); 
+  leftServo.attach(LEFT_SERVO_WRITE);
+  rightServo.attach(RIGHT_SERVO_WRITE); 
     
   // Scenario 1
   shieldBotDriver.forward(MED_SPEED_MAGNITUDE);
