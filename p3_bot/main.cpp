@@ -45,8 +45,7 @@ class Wheels
       // Right one needs to spin anticlockwise
       // Left one needs to spin clockwise
 
-      // Opposite of forwards
-      // Directions to go forward
+      // Directions to go reverse (opposite of forwards)
       leftServo.writeMicroseconds(STATIONARY_MS + speed);
       rightServo.writeMicroseconds(STATIONARY_MS - speed);
 
@@ -59,7 +58,7 @@ class Wheels
       // Right one needs to spin clockwise
       // Left one needs to spin anticlockwise
 
-      // Directions to go reverse
+      // Directions to go forward
       leftServo.writeMicroseconds(STATIONARY_MS - speed);
       rightServo.writeMicroseconds(STATIONARY_MS + speed);
 
