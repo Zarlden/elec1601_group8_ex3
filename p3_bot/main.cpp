@@ -37,7 +37,6 @@ class Wheels
 
       leftServo.writeMicroseconds(STATIONARY_MS + speed);
       rightServo.writeMicroseconds(STATIONARY_MS + speed);
-    
     }
   
     void reverse(int speed)
