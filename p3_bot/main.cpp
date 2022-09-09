@@ -24,7 +24,7 @@ class Wheels
   
     void right(int speed)
     {
-      // Both rotate clockwise
+      // Both rotate anticlockwise
 
       leftServo.writeMicroseconds(STATIONARY_MS - speed);
       rightServo.writeMicroseconds(STATIONARY_MS - speed);
@@ -33,7 +33,7 @@ class Wheels
 
     void left(int speed)
     {
-      // Both rotate anticlockwise
+      // Both rotate clockwise
 
       leftServo.writeMicroseconds(STATIONARY_MS + speed);
       rightServo.writeMicroseconds(STATIONARY_MS + speed);
