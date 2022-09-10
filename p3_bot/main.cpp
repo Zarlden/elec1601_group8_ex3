@@ -13,14 +13,15 @@
 // From the perspective of the arduino board looking
 // at the servos
 
-Servo leftServo;
-Servo rightServo;
 
 
-class Wheels
+
+class Driver
 {
 
   public:
+    Servo leftServo;
+    Servo rightServo;
   
     void right(int speed)
     {
@@ -64,6 +65,7 @@ class Wheels
 
     }
 
+
 };
 
 class LightDetector
@@ -92,12 +94,12 @@ class LightDetector
 
 LightDetector leftLight(LEFT_ANALOG_READ);
 LightDetector rightLight(RIGHT_ANALOG_READ);
-Wheels shieldBotDriver;
+Driver shieldBotDriver;
 
 void setup()
 {
-  leftServo.attach(LEFT_SERVO_WRITE);
-  rightServo.attach(RIGHT_SERVO_WRITE); 
+  shieldBotDriver.leftServo.attach(LEFT_SERVO_WRITE);
+  shieldBotDriver.rightServo.attach(RIGHT_SERVO_WRITE); 
 }
 
 void loop()
