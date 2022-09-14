@@ -6,6 +6,8 @@ Worked with light sensors and continuous servos to simulate how a robot might wo
 
 ### How the code is structured
 
+
+
 **Wheels** is a class that controls the movement of the robot, with methods for the 4 movement types specified.
 
 **LightSensor** is a class that wraps pins which are connected to the light sensor on either side.
