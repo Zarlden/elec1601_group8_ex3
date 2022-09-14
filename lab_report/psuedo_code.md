@@ -1,7 +1,7 @@
 # Pseudo code the lab
-
 ## Simulation
 
+##NOTE have one code block containing the class and just a seperate main and loop for q2, q3 and prac ones
 ```c
 import the Servo library
 constant LEFT_ANALOG = A4
