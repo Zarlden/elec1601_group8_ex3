@@ -3,11 +3,13 @@
 ## Simulation
 
 ```c
-import the Servo date type from the header file
+import the Servo library
 constant LEFT_ANALOG = A4
 constant RIGHT_ANALOG = A5
 constant LEFT_SERVO = 12
 constant RIGHT_SERVO = 13
+constant MEDIUM_SPEED_MAGNITUDE = 100
+constant LOW_SPEED_MAGNITUDE = 50
 
 COMMENT: Class controlling the movement of the servos
 class Driver
@@ -62,16 +64,16 @@ function setup():
 endfunction
 
 function loop():
-  Call the forward() method of shieldBotDriver
+  Call the forward(MEDIUM_SPEED_MAGNITUDE) method of shieldBotDriver
   delay 3000 ms
 
   if readSensorTick() method of leftLight < 2V:
-    Call the left() method of shieldBotDriver
+    Call the left(LOW_SPEED_MAGNITUDE) method of shieldBotDriver
     delay 3000 ms
   endif
 
   if readSensorTick() method of rightLight < 2V:
-    Call the right() method of shieldBotDriver
+    Call the right(LOW_SPEED_MAGNITUDE) method of shieldBotDriver
     delay 3000 ms
   endif
 endfunction
