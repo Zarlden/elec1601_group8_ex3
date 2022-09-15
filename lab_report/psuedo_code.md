@@ -1,7 +1,9 @@
 # Pseudo code the lab
+
 ## Simulation
 
-##NOTE have one code block containing the class and just a seperate main and loop for q2, q3 and prac ones
+##NOTE have one code block containing the class and just a seperate main and loop for q2, q3 and prac ones #[ ] restructure https://users.csc.calpoly.edu/~jdalbey/SWE/pdl_std.html
+
 ```c
 import the Servo library
 constant LEFT_ANALOG = A4
