@@ -198,10 +198,11 @@ Part 3 involved combining the functionality of continuous servos and light senso
 \section{Results}
 Describe the success/failure of your work.
 Highlight any limitations! (this shows understanding)
+% FINITE STATE MACHINE THINGY -- MAKE WITH MERMAID?
 
 \section{Relation to real-world electronics}
 
-The IR sensors can be used for night vision cameras. It is mentione
+The IR sensors can be used for night vision cameras. It is mentioned in \cite{elec1601_notes} that the wavelength of IR is used for remote control of electronics as as TVs. Extending from this real world application, the sensors used in the exercise could be used to control the maze navigating robot for the assignment. This can already be seen by remote controlled toy cars.
 
 %Describe how what you learnt in this lab exists as part of a real devices/products you use, or as an alternative, describe a project you could invent based on what you have learnt.
 For this section, you can move beyond an Arduino, but it should be based on  sensors/actuators related to the lab exercise.
@@ -209,9 +210,11 @@ For this section, you can move beyond an Arduino, but it should be based on  sen
 %Example: a light sensor could be connected to alarm to remind you to put on sunscreen. However, try to elaborate here (e.g. it connects via wifi to your phone and creates a notification). 
 
 \begin{itemize}
-  \item Discuss connections/sensors (suggest what is required to implement this - use drawings as necessary).
-  \item Discuss pseudo code required to get it to work (this can be very high level (e.g. detect light level -> test against threshold -> send information via wifi to phone) 
-  \item Discuss challenges, risks and difficulties to get it working/what could go wrong (e.g calibration for different environments)/fragility of components. Also discuss safety issues.
+  \item {Discuss connections/sensors (suggest what is required to implement this - use drawings as necessary). This would involve fitting the robot with and IR receiver to respond to an IR emitter on a remote.}
+  \item {Discuss pseudo code required to get it to work (this can be very high level (e.g. detect light level -> test against threshold -> send information via wifi to phone) 
+  The code would involve: polling for an IR signal from the robot -> triggering an interrupt if triggered -> change in functionality, such as increasing or decreasing speed}
+  \item {Discuss challenges, risks and difficulties to get it working/what could go wrong (e.g calibration for different environments)/fragility of components. Also discuss safety issues.
+  The IR sensor would have to be exposed and visible from from the perspective of the emitter. This would pose a challenge if the maze}
 \end{itemize}
 
 \section{Conclusion}
