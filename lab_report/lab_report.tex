@@ -65,21 +65,21 @@ The exercise consisted of using continuous servos, light sensors and IR sensors,
 
 %You can, but do not have to use tables. If you do, an example of how you might format one is given in Table ~\ref{tab1}, which describes a summary of all the materials required for this laboratory exercise.
 
-\newpage
-\begin{table}[htbp]
-\caption{Summary of all components. (You can, but do not have to include this table. This table example is an example of how to add a table to  your document, and how to construct in Latex)}
-\begin{center}
-\begin{tabular}{|c|c|c|}
-\hline
-\textbf{Component} & \textbf{\textit{Number required}}& \textbf{\textit{Other details}}\\
-\hline
-LED& 4 &  \\
-Resistor& 10 &  330 Ohm\\
-\hline
-\end{tabular}
-\label{tab1}
-\end{center}
-\end{table}
+% \newpage
+% \begin{table}[htbp]
+% \caption{Summary of all components. (You can, but do not have to include this table. This table example is an example of how to add a table to  your document, and how to construct in Latex)}
+% \begin{center}
+% \begin{tabular}{|c|c|c|}
+% \hline
+% \textbf{Component} & \textbf{\textit{Number required}}& \textbf{\textit{Other details}}\\
+% \hline
+% LED& 4 &  \\
+% Resistor& 10 &  330 Ohm\\
+% \hline
+% \end{tabular}
+% \label{tab1}
+% \end{center}
+% \end{table}
 
 \section{Method}
 
@@ -92,28 +92,38 @@ Resistor& 10 &  330 Ohm\\
 % Use Figures/Tables/Algorithms as appropriate.
 
 \subsection{Part I}
-For the virtual component of Part 1, we simulated the the use of a light sensor and reading it's analog input from the Arduino board. The sensor was connected to the 5V power source, along with a 10K Ohm resistor to GND. The output was read using an analog input pin, namely A0. In order to account for scalability, the code was structured using the object-oriented paradigm, with the UML class diagram for the LightSensor class used in this part depicted in Figure~\ref{fig:uml1}. 
-The algorithm connecting the code to the desired functionality described above is referenced in Algorithm~\ref{alg:part1algo} and describes initialising a LightSensor object and printing it's output to the terminal. It was observed that as the light intensity increased, the analog output value also increased.
+For the virtual component of Part 1, we simulated the the use of a light sensor and reading it's analog input from the Arduino board. The sensor was connected to the 5V power source, along with a 10K Ohm resistor to GND. The output was read using an analog input pin, namely A0. The hardware setup for this part is shown in Figure~\ref{fig:part1} In order to account for scalability, the code was structured using the object-oriented paradigm, with the UML class diagram for the LightSensor class used in this part depicted in Figure~\ref{fig:LightSensorUML}. 
+The algorithm connecting the code to the desired functionality described above is referenced in Algorithm~\ref{alg:part1} and describes initialising a LightSensor object and printing it's output to the terminal. It was observed that as the light intensity increased, the analog output value also increased.
 %(Example text of how to cite/how to reference tables). In Part 1, we emulated the circuit described in the lab instructions \cite{elec1601_notes} (this is how we write a reference). Another example is the book by Harris and Harris~\cite{harris2010digital}. Algorithm~\ref{alg:part1} (Example how to reference an algorithm). Describes our program to make this circuit run. (Please note, pseudocode is code that describes the algorithm in such a fashion it can be easily translated into any programming language. It should not have any specific syntax e.g. C/JAVA/Python)
 \begin{figure}[ht]
     \centering
       \begin{subfigure}[b]{0.2\textwidth}
          \centering
-         \includegraphics[width=0.2\textwidth]{images/pt1.png} 
+         \includegraphics[width=0.5\textwidth]{images/pt1.png} 
          \caption{Circuit Diagram}
          \label{fig:Circuit_diagram1}
      \end{subfigure}
      \begin{subfigure}[b]{0.2\textwidth}
          \centering
-         \includegraphics[width=0.9\textwidth]{images/p1_tkad.png} 
+         \includegraphics[width=1.0\textwidth]{images/p1_tkad.png} 
          \caption{Diagram of connections}
          \label{fig:connections1}
      \end{subfigure}  \hfill
-    \caption{Circuit diagram and connection representation of Part IV (please note, these are obviously not related. This is an example of how to create a figure)}
+    \caption{Circuit diagram and connection representation of Part I}
     \label{fig:part1}
 \end{figure}
-
 %NOTE put a UML diagram and then do the algorithmic thinking part
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.25\textwidth]{images/LightSensor_UML.png}
+    \caption{LightSensor UML diagram}
+    \label{fig:LightSensorUML}
+\end{figure}
+
+\begin{itemize}
+    \item {LightDetector is the constructor that takes in an and assigns it to it's private pin}
+    \item {readSensorTick is a method that should read the value on pin, save it to value and then return it}
+\end{itemize}
 
 \begin{algorithm}
 \caption{Psuedocode for Part 1}\label{alg:part1}
@@ -121,15 +131,16 @@ The algorithm connecting the code to the desired functionality described above i
 \State REQUIRE a LightSensor object with an analog input pin
 \State BEGIN the Serial on port 9600
 \While{True}
-\State READ the value from the analog input pin
+\State CALL readSensorTick and SAVE it's value
 \State PRINT the value read by from the analog input pin to the terminal.
 \State DELAY 100ms
 \EndWhile
 \end{algorithmic}
 \end{algorithm}
 
+\newpage
 \subsection{Part II}\label{Part2Subsection}
-Part 2 involved connecting two continuous servos to a 5V power supply and to GND, wired through a mini breadboard. Their rotation was controlled with a connection of the left servo to pin 13 and the right servo to pin 12. The code for this part was structured in the form of a Driver class, as depicted in the UML class digram of Figure~\ref{fig:uml2}. It was observed that writing the value of 1500 to the servos resulted in no movement, while values greater than 1500 led to clockwise rotation at faster speeds the higher the value, while those below 1500 resulting in faster anticlockwise rotation. The pseudocode has been omitted in favour of the functionality being explained in the UML diagram.
+Part 2 involved connecting two continuous servos to a 5V power supply and to GND, wired through a mini breadboard. Their rotation was controlled with a connection of the left servo to pin 13 and the right servo to pin 12. The code for this part was structured in the form of a Driver class, as depicted in the UML class digram of Figure~\ref{fig:uml2}. It was observed that writing the value of 1500 to the servos resulted in no movement, while values greater than 1500 led to clockwise rotation at faster speeds the higher the value, while those below 1500 resulting in increasingly faster anticlockwise rotation. The pseudocode has been omitted in favour of the functionality being explained in the UML diagram.
 
 \begin{figure}[ht]
     \centering
@@ -182,13 +193,13 @@ Part 3 involved combining the functionality of continuous servos and light senso
 \State REQUIRE 2 LightSensor objects connected to analog input pins
 \State REQUIRE 1 Driver object with it's servos attached
 \While{True}
-    \State CALL forward() method of the Driver class WITH mSpeedMag
+    \State CALL forward() method of the Driver object WITH mSpeedMag
     \State DELAY 3000ms
-\If{left Light Sensor's value is < 2V}
-    \State CALL left() method of the Driver class WITH lSpeedMag
+\If{left Light Sensor's value is $\leq$ 2V}
+    \State CALL left() method of the Driver object WITH lSpeedMag
     \State DELAY 3000ms
-\ElsIf{right Light Sensor's value is < 2V}
-    \State CALL right() method of the Driver class WITH lSpeedMag
+\ElsIf{right Light Sensor's value is $\leq$ 2V}
+    \State CALL right() method of the Driver object WITH lSpeedMag
     \State DELAY 3000ms
 \EndIf
 \EndWhile
@@ -196,26 +207,40 @@ Part 3 involved combining the functionality of continuous servos and light senso
 \end{algorithm}
 
 \section{Results}
+Both the virtual and physical lab were successful in that the code written for the simulation produced the expected behaviour in the real world for the most part. Small adjustments were needed to the speed values of the servos due to the hardware differences and the addition of the IrSensor class along with it's physical components posed some differences which were overcome through refactoring the given code on canvas \cite{elec1601_notes}.
+The calibration for the physical environment, however, does pose a scalability issue of the project. If the servos needed to be adjusted for each robot, due to the friction of the wheel treads or tuning of the motor for example, 
 Describe the success/failure of your work.
 Highlight any limitations! (this shows understanding)
 % FINITE STATE MACHINE THINGY -- MAKE WITH MERMAID?
 
 \section{Relation to real-world electronics}
 
-The IR sensors can be used for night vision cameras. It is mentioned in \cite{elec1601_notes} that the wavelength of IR is used for remote control of electronics as as TVs. Extending from this real world application, the sensors used in the exercise could be used to control the maze navigating robot for the assignment. This can already be seen by remote controlled toy cars.
+The IR sensors we used in the lab can be used for night vision cameras. It is mentioned in \cite{elec1601_notes} that the wavelength of IR spans 800 – 1000 nanometres (nm), which is beyond the visible spectrum for the human eye. It is also mentioned that the wavelengths bounce off of objects. This makes IR suitable for night vision detection, as the waves can bounce off of objects and picked up by special CCD cameras to produce a visible, monochrome image.
 
 %Describe how what you learnt in this lab exists as part of a real devices/products you use, or as an alternative, describe a project you could invent based on what you have learnt.
-For this section, you can move beyond an Arduino, but it should be based on  sensors/actuators related to the lab exercise.
+%For this section, you can move beyond an Arduino, but it should be based on  sensors/actuators related to the lab exercise.
 
 %Example: a light sensor could be connected to alarm to remind you to put on sunscreen. However, try to elaborate here (e.g. it connects via wifi to your phone and creates a notification). 
 
+%begin{itemize}
+%   \item {Discuss connections/sensors (suggest what is required to implement this - use drawings as necessary). IR night vision involves an IR emitter coupled with a CCD camera which is sensitive to it's wavelength.}
+%   \item {Discuss pseudo code required to get it to work (this can be very high level (e.g. 
+%   emit IR waves \xrightarrow{} waves bounce off of object \xrightarrow{} CCD camera detects IR \xrightarrow{} software processes and enhances the image from the camera
+%   \item {Discuss challenges, risks and difficulties to get it working/what could go wrong (e.g calibration for different environments)/fragility of components. Also discuss safety issues.
+%   }
+% \end{itemize}
+
 \begin{itemize}
-  \item {Discuss connections/sensors (suggest what is required to implement this - use drawings as necessary). This would involve fitting the robot with and IR receiver to respond to an IR emitter on a remote.}
-  \item {Discuss pseudo code required to get it to work (this can be very high level (e.g. detect light level -> test against threshold -> send information via wifi to phone) 
-  The code would involve: polling for an IR signal from the robot -> triggering an interrupt if triggered -> change in functionality, such as increasing or decreasing speed}
-  \item {Discuss challenges, risks and difficulties to get it working/what could go wrong (e.g calibration for different environments)/fragility of components. Also discuss safety issues.
-  The IR sensor would have to be exposed and visible from from the perspective of the emitter. This would pose a challenge if the maze}
+  \item {\textbf{Connections/sensors:} IR night vision involves an IR emitter coupled with a CCD camera which is sensitive to it's wavelength. This hardware setup is seen in Figure \ref{fig:IR camera}.}
+  \item {\textbf{Psuedocode:} IR LED emits IR waves $\rightarrow$ waves bounce off of object $\rightarrow$ CCD camera detects IR $\rightarrow$ software processes and enhances the image from the camera}
+  \item {\textbf{Challenges/Difficulties:} Calibrating the hardware, such that camera only picks up the IR waves of it's emitter poses a challenge, especially when multiple night vision cameras may be in use. Additionally, programming the software to process the image may would pose a difficulty due to complexity of image algorithms. Both the camera and emitter would also have to be maintained regularly to ensure they are functioning properly, presenting a safety risk especially if the cameras are placed at a high altitude.}
 \end{itemize}
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.4\textwidth]{images/IR_diagram.png}
+  \caption{How the IR emitter and CCD camera would operate}
+  \label{fig:IR camera}
+\end{figure}
 
 \section{Conclusion}
 Describe to what extent your stated learning outcomes were met and what you learnt.
@@ -223,10 +248,4 @@ Describe to what extent your stated learning outcomes were met and what you lear
 \bibliographystyle{ieeetr}
 \bibliography{references/ref}
 
-\appendix
-
-Any additional information. Please be aware, anything in this section may not be marked - it cannot contain anything critical. 
-
 \end{document}
-
-
